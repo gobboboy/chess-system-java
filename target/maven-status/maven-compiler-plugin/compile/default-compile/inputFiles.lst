@@ -1,1 +1,13 @@
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/boardgame/Position.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/boardgame/Board.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/chess/ChessException.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/boardgame/BoardException.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/chess/ChessPiece.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/chess/pieces/King.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/chess/pieces/Rook.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/application/UI.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/boardgame/Piece.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/chess/ChessMatch.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/chess/Color.java
 /home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/application/Program.java
+/home/gobboboy/code/java/ws-udemy/secao16/chess-system/src/main/java/chess/ChessPosition.java

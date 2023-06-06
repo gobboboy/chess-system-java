@@ -4,10 +4,12 @@
  */
 package application;
 
+import chess.ChessException;
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,24 +25,39 @@ public class Program {
         
         List<ChessPiece> list = new ArrayList<>();
         while(true) {
-            UI.printBoard(chessMatch.getPieces());
-            System.out.println();
-            System.out.print("Source: ");
-            ChessPosition source = UI.readChessPosition(sc);
-                    
-            System.out.println();
-            System.out.print("Target: ");
-            ChessPosition target = UI.readChessPosition(sc);
-            
-            ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
-            if (capturedPiece != null) {
-                list.add(capturedPiece);
+            try {
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces());
+                System.out.println();
+                System.out.print("Source: ");
+                ChessPosition source = UI.readChessPosition(sc);
+                
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
+
+                System.out.println();
+                System.out.print("Target: ");
+                ChessPosition target = UI.readChessPosition(sc);
+
+                ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
+                if (capturedPiece != null) {
+                    list.add(capturedPiece);
+                }
+                System.out.print("Captured Pieces:");
+                for (ChessPiece p : list) {
+                    System.out.print(" " + p);
+                }
+                System.out.println();
+                }
+            catch (ChessException  e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
             }
-            System.out.print("Captured Pieces:");
-            for (ChessPiece p : list) {
-                System.out.print(" " + p);
+            catch (InputMismatchException e) {
+                System.out.println(e.getMessage());
+                sc.nextLine();
             }
-            System.out.println();
         }
     }
 }
