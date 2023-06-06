@@ -5,6 +5,11 @@
 package application;
 
 import chess.ChessMatch;
+import chess.ChessPiece;
+import chess.ChessPosition;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 
 /**
@@ -13,8 +18,29 @@ import chess.ChessMatch;
  */
 public class Program {
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
-        UI.printBoard(chessMatch.getPieces());
+        
+        List<ChessPiece> list = new ArrayList<>();
+        while(true) {
+            UI.printBoard(chessMatch.getPieces());
+            System.out.println();
+            System.out.print("Source: ");
+            ChessPosition source = UI.readChessPosition(sc);
+                    
+            System.out.println();
+            System.out.print("Target: ");
+            ChessPosition target = UI.readChessPosition(sc);
+            
+            ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
+            if (capturedPiece != null) {
+                list.add(capturedPiece);
+            }
+            System.out.print("Captured Pieces:");
+            for (ChessPiece p : list) {
+                System.out.print(" " + p);
+            }
+            System.out.println();
+        }
     }
 }
