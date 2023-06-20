@@ -1,4 +1,5 @@
 chess/pieces/Knight.class
+chess/pieces/Queen.class
 application/Program.class
 chess/pieces/Bishop.class
 chess/pieces/Pawn.class
